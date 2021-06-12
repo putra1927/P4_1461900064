@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\bukucontroller;
+use App\Http\Controllers\Excel;
+use App\Exports\bukuexport;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome');  
 });
+Route::get('/buku',[bukucontroller::class,'index']);
+Route::get('/cari',[bukucontroller::class,'carijoin']);
+Route::get('/export', 'BukuController@export');
+ 
